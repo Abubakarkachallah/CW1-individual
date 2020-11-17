@@ -9,6 +9,9 @@
 <body>
     <div id="app">
 
+        <header>
+            <h1 style="font-style: calibri;" style="text-align: right;">{{ sitename }}</h1>
+        </header>
 
 
     </div>
@@ -18,13 +21,14 @@
         var store = new Vue({
             el:"#app",
             data: {
-
+            sitename: "BOOKS",
+            products: products,
             },
             methods: {
 
             },
             computed: {
-                
+
             }
         })
     </script>
