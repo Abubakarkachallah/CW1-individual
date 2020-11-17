@@ -27,6 +27,12 @@
                             <p>Location: {{product.location}}</p>
                             <p>Price: {{product.price}}</p>
                             <p>Available Stock: {{product.availableInventory}}</p>
+                            <button v-on:click="addToCart" v-if="canAddToCart" class="btn btn-block btn-info">
+                                Add to cart
+                            </button>
+                            <button class="btn btn-secondary btn-block disabled" v-else>
+                                Out of stock
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -46,10 +52,27 @@
             products: products,
             },
             methods: {
+                addToCart: function (product) {
+                            this.cart.push(product);
+                },
 
+                cartCount(id) {
+                            let count = 0;
+                            for (let i = 0; i < this.cart.length; i++) {
+                                if (this.cart[i] === id) {
+                                    count++;
+                                }
+                            }
+                            return count;
+                        },
+                        canAddToCart: function (product) {
+                            return product.availableInventory > this.cartCount(product);
+                        },
             },
             computed: {
-
+                cartItemCount: function () {
+                            return this.cart.length;
+                        },
             }
         })
     </script>
