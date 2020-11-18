@@ -19,7 +19,7 @@ let products = [
     },
     {
         "id": 1003,
-        "title": "SOFTWARE ENGINEERING PRINCIPLES",
+        "title": "SOFTWARE ENGINEERING",
         "location": "MALTA",
         "price": 50.00,
         "image": "images/SE.jpg",
@@ -37,7 +37,7 @@ let products = [
     },
     {
         "id": 1005,
-        "title": "HOW TO BE A FOOTBALLER",
+        "title": "FOOTBALL",
         "location": "SPAIN",
         "price": 30.00,
         "image": "images/Football.jpeg",

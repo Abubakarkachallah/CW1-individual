@@ -17,9 +17,10 @@
         </header>
 
         <div class="col-2">
-            <button class="btn btn-success" v-on:click="showCheckout" v-if="cartItemCount > 0">{{cartItemCount}} <i class="fas fa-cart-plus"></i></button>
+            
+            <button class="btn btn-success" v-on:click="showCheckout" v-if="cartItemCount > 0">{{cartItemCount}} <i class="fas fa-cart-plus"></i> Checkout</button>
 
-            <button class="btn btn-secondary disabled" v-else>{{cartItemCount}} <i class="fas fa-cart-plus"></i></button><br><br>
+            <button class="btn btn-secondary disabled" disabled v-else>{{cartItemCount}} <i class="fas fa-cart-plus"></i> Checkout</button><br><br>
         </div>
         </div>
 
@@ -48,8 +49,36 @@
         </div>
         </div>
         
+        <div v-else>
+   
+            <header>
+                <h1 style="text-align: center;">CHECKOUT</h1>
+            </header>
+
+            <div class="col-2">
+                <button class="btn btn-success" v-on:click="showCheckout">{{cartItemCount}} <i class="fas fa-cart-plus"></i>BOOKS</button><br><br>
+            </div>
+
+            <form>
+                <div class="row m-5">
+                    <div class="form-group col-4">
+                        <input v-model="order.fullname" class="form-control border-top-0 border-left-0 border-right-0" placeholder="Full Name">
+                    </div>
+                    <div class="form-group col-4">
+                        <input v-model.number="order.phone" class="form-control border-top-0 border-left-0 border-right-0" placeholder="Phone">
+                    </div>
+                    <div class="form-group col-4">
+                        <button class="btn btn-primary" v-if="checkoutBtn" v-on:click="submitOrder">Checkout</button>
+
+                        <button class="btn btn-secondary" disabled v-else>Checkout</button>
+                    </div>
+                </div>
+              </form>
 
     </div>
+
+    </div>
+
 
 
     <script>
@@ -58,8 +87,13 @@
             data: {
             showproducts: true,
             products: products,
-            cart: []
+            cart: [],
+            order: {
+                    fullname: '',
+                    phone: '',
+                },
             },
+
             methods: {
                 addToCart: function(product) {
                             this.cart.push(product);
@@ -80,10 +114,19 @@
                         showCheckout() {
                             this.showproducts = this.showproducts ? false : true;
                         },
+
             },
             computed: {
                 cartItemCount: function () {
                             return this.cart.length;
+                        },
+                checkoutBtn() {
+                            if (this.order.fullname && this.order.phone) {
+                                return true
+                            }
+                            else {
+                                return false
+                            }
                         },
             }
         })
