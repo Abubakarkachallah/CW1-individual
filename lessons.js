@@ -88,5 +88,23 @@ let products = [
         "image": "images/Thor.jpeg",
         "availableInventory": 20,
         "rating": 5
+    },
+    {
+        "id": 1011,
+        "title": "Ping Pong",
+        "location": "CHINA",
+        "price": 25.00,
+        "image": "images/Ping.jpeg",
+        "availableInventory": 20,
+        "rating": 2
+    },
+    {
+        "id": 1012,
+        "title": "Pilot",
+        "location": "EGYPT",
+        "price": 50.00,
+        "image": "images/Pilot.jpeg",
+        "availableInventory": 10,
+        "rating": 5
     }
 ]
