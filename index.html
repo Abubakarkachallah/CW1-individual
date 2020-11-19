@@ -13,7 +13,7 @@
         <div v-if="showproducts">
         <div>
         <header>
-            <h1 style="text-align: center;">BOOKS</h1>
+            <h1 style="text-align: center;">AFTER SCHOOL CLUB</h1>
         </header>
         <div class="row">
             <div class="col-10">
@@ -78,8 +78,14 @@
                     <ul class="list-group">
                         <li class="list-group-item" v-for="product in cart">
                             <div class="row">
+                                <div>
+                                    <img v-bind:src="product.image" style="width: 300px; height: 200px;">
+                                </div>
                                 <div class="col-6">
                                     <p>{{product.title}}</p>
+                                </div>
+                                <div class="col-2">
+                                    <span style="cursor: pointer;" class="text-danger" v-on:click="removeFromCart(product)" ><b>REMOVE FROM CART</b></span>
                                 </div>
                             </div>
                         </li>
@@ -129,7 +135,9 @@
                 addToCart: function(product) {
                             this.cart.push(product);
                 },
-
+                removeFromCart: function (product){
+                            this.cart.splice(this.cart.indexOf(product))
+                        },
                 cartCount(id) {
                             let count = 0;
                             for (let i = 0; i < this.cart.length; i++) {
@@ -167,13 +175,16 @@
                                         return productsArray.sort(comparePrice)
                                     }
                         },
+                        submitOrder() {
+                            alert("Order submitted!")
+                        }
             },
             computed: {
                 cartItemCount: function () {
                             return this.cart.length;
                         },
                 checkoutBtn() {
-                            if (this.order.fullname && this.order.phone) {
+                            if (this.order.name && this.order.phone) {
                                 return true
                             }
                             else {

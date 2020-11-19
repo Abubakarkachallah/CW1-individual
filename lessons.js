@@ -1,7 +1,7 @@
 let products = [
     {
         "id": 1001,
-        "title": "ADVANCED CHEMISTRY",
+        "title": "CHEMISTRY CLUB",
         "location": "LONDON",
         "price": 30.00,
         "image": "images/AC.jpg",
@@ -10,7 +10,7 @@ let products = [
     },
     {
         "id": 1002,
-        "title": "MATHEMATICS",
+        "title": "MATHEMATICS CLUB",
         "location": "MAURITIUS",
         "price": 10.00,
         "image": "images/Math.jpg",
@@ -19,7 +19,7 @@ let products = [
     },
     {
         "id": 1003,
-        "title": "SOFTWARE ENGINEERING",
+        "title": "SOFTWARE ENGINEERING CLUB",
         "location": "MALTA",
         "price": 50.00,
         "image": "images/SE.jpg",
@@ -28,7 +28,7 @@ let products = [
     },
     {
         "id": 1004,
-        "title": "ENGLISH STUDIES",
+        "title": "ENGLISH STUDIES CLUB",
         "location": "MALI",
         "price": 10.00,
         "image": "images/English.jpeg",
@@ -37,7 +37,7 @@ let products = [
     },
     {
         "id": 1005,
-        "title": "FOOTBALL",
+        "title": "FOOTBALL CLUB",
         "location": "SPAIN",
         "price": 30.00,
         "image": "images/Football.jpeg",
@@ -55,7 +55,7 @@ let products = [
     },
     {
         "id": 1007,
-        "title": "BUSINESS MANAGEMENT",
+        "title": "BUSINESS MANAGEMENT CLUB",
         "location": "PORTUGAL",
         "price": 20.00,
         "image": "images/BM.jpeg",
@@ -64,7 +64,7 @@ let products = [
     },
     {
         "id": 1008,
-        "title": "INFORMATION TECHNOLOGY",
+        "title": "INFORMATION TECHNOLOGY CLUB",
         "location": "FRANCE",
         "price": 35.00,
         "image": "images/IT.jpeg",
@@ -73,7 +73,7 @@ let products = [
     },
     {
         "id": 1009,
-        "title": "PINGFONG BABY(KIDS)",
+        "title": "PINGFONG BABY(KIDS) CLUB",
         "location": "SWITZERLAND",
         "price": 5.00,
         "image": "images/PF.png",
@@ -91,7 +91,7 @@ let products = [
     },
     {
         "id": 1011,
-        "title": "Ping Pong",
+        "title": "Ping Pong CLUB",
         "location": "CHINA",
         "price": 25.00,
         "image": "images/Ping.jpeg",
@@ -100,7 +100,7 @@ let products = [
     },
     {
         "id": 1012,
-        "title": "Pilot",
+        "title": "PILOT CLUB",
         "location": "EGYPT",
         "price": 50.00,
         "image": "images/Pilot.jpeg",
