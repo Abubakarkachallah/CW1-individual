@@ -15,20 +15,35 @@
         <header>
             <h1 style="text-align: center;">BOOKS</h1>
         </header>
-
-        <div class="col-2">
+        <div class="row">
+            <div class="col-10">
+                <div class="row ml-5">
+                    <div class="col">
+                        <p>Sort</p>
+                        <input type="radio" value="price" name="sort" v-model="price" checked> Price
+                    </div>
+                    <div class="col">
+                        <p>Order</p>
+                        <input type="radio" value="asc" name="orderr" v-model="orderr"> Ascending
+                        <input type="radio" value="des" name="orderr" v-model="orderr"> Descending
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
             
-            <button class="btn btn-success" v-on:click="showCheckout" v-if="cartItemCount > 0">{{cartItemCount}} <i class="fas fa-cart-plus"></i> Checkout</button>
-
-            <button class="btn btn-secondary disabled" disabled v-else>{{cartItemCount}} <i class="fas fa-cart-plus"></i> Checkout</button><br><br>
+                <button class="btn btn-success" v-on:click="showCheckout" v-if="cartItemCount > 0">{{cartItemCount}} <i class="fas fa-cart-plus"></i> Checkout</button>
+    
+                <button class="btn btn-secondary disabled" disabled v-else>{{cartItemCount}} <i class="fas fa-cart-plus"></i> Checkout</button><br><br>
+            </div>
         </div>
+        
         </div>
 
         
 
         <div class="col-10 pl-0 pr-3">
             <div class="row">
-                <div class="col-3 mb-3" v-for="product in products">
+                <div class="col-3 mb-3" v-for="product in sortedLessons(sort, orderr)">
                     <div class="card">
                         <img v-bind:src="product.image" style="height: 200px;">
                         <div class="card-body">
@@ -62,10 +77,10 @@
             <form>
                 <div class="row m-5">
                     <div class="form-group col-4">
-                        <input v-model="order.fullname" class="form-control border-top-0 border-left-0 border-right-0" placeholder="Full Name">
+                        <input v-model="order.name" class="form-control" placeholder="Full Name">
                     </div>
                     <div class="form-group col-4">
-                        <input v-model.number="order.phone" class="form-control border-top-0 border-left-0 border-right-0" placeholder="Phone">
+                        <input v-model.number="order.phone" class="form-control" placeholder="Phone">
                     </div>
                     <div class="form-group col-4">
                         <button class="btn btn-primary" v-if="checkoutBtn" v-on:click="submitOrder">Checkout</button>
@@ -89,10 +104,13 @@
             products: products,
             cart: [],
             order: {
-                    fullname: '',
+                    name: '',
                     phone: '',
                 },
+            orderr: "asc",
+            sort: "price"
             },
+            
 
             methods: {
                 addToCart: function(product) {
@@ -114,7 +132,28 @@
                         showCheckout() {
                             this.showproducts = this.showproducts ? false : true;
                         },
-
+                        sortedLessons(sort, order) {
+                            let productsArray = this.products.slice(0);
+                                    if (order == "asc") {
+                                        function comparePrice(a, b) {
+                                            if (a.price > b.price)
+                                                return 1
+                                            if (a.price < b.price)
+                                                return -1
+                                            return 0
+                                        }
+                                        return productsArray.sort(comparePrice)
+                                    } else {
+                                        function comparePrice(a, b) {
+                                            if (a.price > b.price)
+                                                return -1
+                                            if (a.price < b.price)
+                                                return 1
+                                            return 0
+                                        }
+                                        return productsArray.sort(comparePrice)
+                                    }
+                        },
             },
             computed: {
                 cartItemCount: function () {
