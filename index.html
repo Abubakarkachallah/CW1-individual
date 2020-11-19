@@ -73,6 +73,19 @@
             <div class="col-2">
                 <button class="btn btn-success" v-on:click="showCheckout">{{cartItemCount}} <i class="fas fa-cart-plus"></i>BOOKS</button><br><br>
             </div>
+            <div>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="product in cart">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>{{product.title}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             <form>
                 <div class="row m-5">
