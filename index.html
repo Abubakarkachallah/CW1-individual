@@ -120,7 +120,7 @@
             el:"#app",
             data: {
             showproducts: true,
-            products: products,
+            products: [],
             cart: [],
             order: {
                     name: '',
@@ -191,7 +191,23 @@
                                 return false
                             }
                         },
-            }
+                       
+            },
+            created: {​​​​​​​​
+                function() {​​​​​​​​
+                    console.log("requesting data from server....");
+                    fetch("https://abubakar-kachallah.herokuapp.com/collection/lessons").then(
+                    function (res) {​​​​​​​​
+                        res.json().then(
+                        function (json) {​​​​​​​​
+                            store.products = json;
+                          //  console.log(json);
+                    }​​​​​​​​
+                )
+            }​​​​​​ ​​
+        )
+    }​​​​​​​​
+ }​​​​​​​
         })
     </script>
 
